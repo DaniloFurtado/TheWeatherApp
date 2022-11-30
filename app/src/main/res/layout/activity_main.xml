@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background_gradient"
+    tools:context=".presentation.home.WeatherActivity">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/home_back_ground"
+        tools:context=".presentation.home.WeatherActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_background_gradient"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTimeLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/time_margin_top"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9:12 AM" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textLocationPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_text_current_place"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTimeLive"
+            tools:text="San Francisco" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textCurrentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_min"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_16"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLocationPlace"
+            tools:text="Tuesday, 18 Apr 20222" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconWeather"
+            android:layout_width="@dimen/icon_weather_size"
+            android:layout_height="@dimen/icon_weather_size"
+            android:layout_marginTop="@dimen/margin_icon_weather_top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textCurrentDate"
+            app:layout_constraintVertical_bias="0"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_temperature"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_56"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconWeather"
+            tools:text="82.4°F" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textWhatAboutDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_what_about_day"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTemperature"
+            tools:text="It's a sunny day." />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textVelocity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty_two_dp"
+            android:layout_marginEnd="@dimen/twenty_two_dp"
+            android:drawablePadding="@dimen/teen_dp"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_12"
+            app:drawableStartCompat="@drawable/ic_windy_icon"
+            app:layout_constraintEnd_toStartOf="@+id/textHumidity"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWhatAboutDay"
+            tools:text="3 mph" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/twenty_two_dp"
+            android:layout_marginTop="@dimen/twenty_two_dp"
+            android:drawablePadding="@dimen/teen_dp"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_12"
+            app:drawableStartCompat="@drawable/ic_humidity_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textVelocity"
+            app:layout_constraintTop_toBottomOf="@+id/textWhatAboutDay"
+            tools:text="60%" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconWeatherToday"
+            android:layout_width="@dimen/size_icon_bottom"
+            android:layout_height="@dimen/size_icon_bottom"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="@dimen/margin_min"
+            app:layout_constraintBottom_toTopOf="@+id/textTodayWeather"
+            app:layout_constraintEnd_toEndOf="@+id/textTodayWeather"
+            app:layout_constraintStart_toStartOf="@+id/textTodayWeather"
+            tools:src="@drawable/ic_sunny" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTodayWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_12"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textTomorrowWeather"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVelocity"
+            tools:text="Today" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconWeatherTomorrow"
+            android:layout_width="@dimen/size_icon_bottom"
+            android:layout_height="@dimen/size_icon_bottom"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="@dimen/margin_min"
+            app:layout_constraintBottom_toTopOf="@+id/textTomorrowWeather"
+            app:layout_constraintEnd_toEndOf="@+id/textTomorrowWeather"
+            app:layout_constraintStart_toStartOf="@+id/textTomorrowWeather"
+            tools:src="@drawable/ic_sunny" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTomorrowWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/fifteen_teen"
+            android:textSize="@dimen/text_size_12"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textAfterTomorrowWeather"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textTodayWeather"
+            app:layout_constraintTop_toBottomOf="@+id/textVelocity"
+            tools:text="Tomorrow" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconWeatherAfterTomorrow"
+            android:layout_width="@dimen/size_icon_bottom"
+            android:layout_height="@dimen/size_icon_bottom"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="@dimen/margin_min"
+            app:layout_constraintBottom_toTopOf="@+id/textAfterTomorrowWeather"
+            app:layout_constraintEnd_toEndOf="@+id/textAfterTomorrowWeather"
+            app:layout_constraintStart_toStartOf="@+id/textAfterTomorrowWeather"
+            tools:src="@drawable/ic_sunny" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textAfterTomorrowWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/fifteen_teen"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textTomorrowWeather"
+            app:layout_constraintTop_toBottomOf="@+id/textVelocity"
+            tools:text="Friday" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
