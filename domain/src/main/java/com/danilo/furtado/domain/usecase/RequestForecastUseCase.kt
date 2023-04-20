@@ -6,7 +6,6 @@ import com.danilo.furtado.domain.repository.ForecastRepository
 import com.danilo.furtado.domain.usecase.requests.model.ForecastRequest
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flatMapConcat
 import java.security.InvalidParameterException
 
 class RequestForecastUseCase(

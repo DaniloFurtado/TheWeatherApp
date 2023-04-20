@@ -21,3 +21,8 @@ data class WeatherUiState(
     val isLoading: Boolean = false,
     val errorMessage: String? = ""
 )
+
+sealed class UiState {
+    class Success(val desc: String) : UiState()
+    object Loading : UiState()
+}

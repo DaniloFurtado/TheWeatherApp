@@ -16,19 +16,19 @@ abstract class MainUseCase<T, in Params> constructor(
 
     abstract suspend fun buildUseCase(params: Params? = null): Flow<T>
 
-    fun execute(
+    open operator fun invoke(
         params: Params? = null,
         onResult: (T) -> Unit,
         onError: (e: Throwable) -> Unit,
-        onStartLoad: (() -> Unit)? = null,
-        onFinishLoad: (() -> Unit)? = null
+        onStartProcess: (() -> Unit)? = null,
+        onFinishProcess: (() -> Unit)? = null
     ) {
         disposeLast()
         coroutineContext = Job().plus(dispatcher).plus(Dispatchers.Main)
         CoroutineScope(coroutineContext).launch {
             buildUseCase(params)
-                .onStart { onStartLoad?.invoke() }
-                .onCompletion { onFinishLoad?.invoke() }
+                .onStart { onStartProcess?.invoke() }
+                .onCompletion { onFinishProcess?.invoke() }
                 .catch { exception ->
                     onError.invoke(exception)
                 }

@@ -20,22 +20,21 @@ class WeatherViewModel(
 
     fun requestForecastWeather() {
         _uiState.update { it.copy(success = true) }
-        requestForecastUseCase
-            .execute(
-                params = ForecastRequest(API_KEY, "New York", QUANTITY_DAYS_FORECAST),
-                onResult = ::handleResult,
-                onError = { throwable ->
-                    _uiState.update {
-                        it.copy(errorMessage = throwable.message, success = false)
-                    }
-                },
-                onStartLoad = {
-                    _uiState.update { it.copy(isLoading = true) }
-                },
-                onFinishLoad = {
-                    _uiState.update { it.copy(isLoading = false) }
+        requestForecastUseCase(
+            params = ForecastRequest(API_KEY, "New York", QUANTITY_DAYS_FORECAST),
+            onResult = ::handleResult,
+            onError = { throwable ->
+                _uiState.update {
+                    it.copy(errorMessage = throwable.message, success = false)
                 }
-            )
+            },
+            onStartLoad = {
+                _uiState.update { it.copy(isLoading = true) }
+            },
+            onFinishLoad = {
+                _uiState.update { it.copy(isLoading = false) }
+            }
+        )
     }
 
     private fun handleResult(forecastContainer: ForecastContainer) {
