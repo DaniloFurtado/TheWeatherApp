@@ -39,8 +39,7 @@ class WeatherViewModelTest {
 
     private fun `given request with success`() {
         every {
-            requestForecastUseCase
-                .execute(any(), capture(captorResult), any(), any(), any())
+            requestForecastUseCase(any(), capture(captorResult), any(), any(), any())
         } answers {
             captorResult.captured.invoke(forecastContainerData)
         }
@@ -57,8 +56,7 @@ class WeatherViewModelTest {
         assertEquals("${forecastContainerData.current.humidity} %", result.humidity)
 
         verify(exactly = 1) {
-            requestForecastUseCase
-                .execute(any(), any(), any(), any(), any())
+            requestForecastUseCase(any(), any(), any(), any(), any())
         }
     }
 
@@ -71,8 +69,7 @@ class WeatherViewModelTest {
 
     private fun `given request error handle properly with`() {
         coEvery {
-            requestForecastUseCase
-                .execute(any(), any(), capture(captorError), any(), any())
+            requestForecastUseCase(any(), any(), capture(captorError), any(), any())
         } answers {
             captorError.captured.invoke(Exception("Error test"))
         }
@@ -88,8 +85,7 @@ class WeatherViewModelTest {
         assertEquals("Error test", result.errorMessage)
 
         verify(exactly = 1) {
-            requestForecastUseCase
-                .execute(any(), any(), any(), any(), any())
+            requestForecastUseCase(any(), any(), any(), any(), any())
         }
     }
 
@@ -102,8 +98,7 @@ class WeatherViewModelTest {
 
     private fun `given start view model properly`() {
         coEvery {
-            requestForecastUseCase
-                .execute(any(), capture(captorResult), any(), any(), any())
+            requestForecastUseCase(any(), capture(captorResult), any(), any(), any())
         } answers {
             captorResult.captured.invoke(forecastContainerData)
         }
@@ -115,8 +110,7 @@ class WeatherViewModelTest {
 
     private fun `then start view model properly`() {
         verify(exactly = 1) {
-            requestForecastUseCase
-                .execute(any(), any(), any(), any(), any())
+            requestForecastUseCase(any(), any(), any(), any(), any())
         }
     }
 }

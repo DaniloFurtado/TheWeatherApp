@@ -28,10 +28,10 @@ class WeatherViewModel(
                     it.copy(errorMessage = throwable.message, success = false)
                 }
             },
-            onStartLoad = {
+            onStartProcess = {
                 _uiState.update { it.copy(isLoading = true) }
             },
-            onFinishLoad = {
+            onFinishProcess = {
                 _uiState.update { it.copy(isLoading = false) }
             }
         )
